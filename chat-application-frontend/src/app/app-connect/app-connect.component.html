@@ -1,0 +1,9 @@
+<div class="container">
+    <mat-card>
+        <div class="details">
+            <input type="text" placeholder="Enter the username" (change)="handleUsername($event)" name="username"
+                [value]="userData.username">
+            <button (click)="registerUser()">Connect</button>
+        </div>
+    </mat-card>
+</div>

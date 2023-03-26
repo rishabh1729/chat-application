@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-card class="window-box">
+        <div class="rooms">
+            <mat-selection-list #rooms [multiple]="false">
+                <mat-list-option *ngFor="let chatroom of chatrooms" [value]="chatroom" class="chatroom"
+                    (click)="selectRoom(rooms.selectedOptions.selected[0]?.value)" [selected]="chatroom == selectedReceiver">
+                    {{chatroom}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <div class="window">
+            <div class="chat-window">
+                <mat-card class="messages" *ngFor="let chat of messages">
+                    <div class="sent-message" *ngIf="chat.senderName == userData.username">
+                        <div class="message-data-self">{{ chat.message }}</div>
+                        <div class="sender-self">{{ chat.senderName }}</div>
+                    </div>
+                    <div class="received-message" *ngIf="chat.senderName != userData.username">
+                        <div class="sender">{{ chat.senderName }}</div>
+                        <div class="message-data">{{ chat.message }}</div>
+                    </div>
+                </mat-card>
+            </div>
+            <div class="message-box">
+                <div class="action">
+                    <input type="text" placeholder="Enter message" [value]="userData.message" (change)="handleMessage($event)">
+                    <button (click)="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
