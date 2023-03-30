@@ -3,7 +3,6 @@
 
 - In the chat application, user can start by providing the username. The application allows the users, connected to the same server, to communicate publicly and privately to other users. There is a public chatroom as well as one-on-one chatroom to communicate privately.
 
----
 ## Backend
 - Spring Boot Maven Project
 - **Dependency:** Spring WebSocket
@@ -19,13 +18,12 @@ To build the backend, run the command: `mvn clean install`
 ### Running the project
 To run the Spring Boot application, run the command: `mvn spring-boot:run`
 
----
 ## Frontend
 - Angular Project
 - **Dependencies:** Angular Material, sockjs-client, stompjs
 - Stomp Client is used to connect to web-socket endpoint, subscribe to message broker, and send messages.
 - Each user listens to 2 message brokers:
-	- `/chatroom/public`: to get public message
+	- `/chatroom/public`: to get public messages
 	- `/user/{username}/private`: to get private messages
 - Each user uses 2 backend APIs :
 	- `/app/message/`: to send message to public chatroom
